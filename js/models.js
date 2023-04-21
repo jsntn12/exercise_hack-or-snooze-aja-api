@@ -71,11 +71,26 @@ class StoryList {
 	 * Returns the new Story instance
 	 */
 
-	async addStory(/* user, newStory */) {
+	async addStory(user, { title, author, url }) {
 		// UNIMPLEMENTED: complete this function!
+		const token = user.loginToken;
+		const response = await axios({
+			method: 'POST',
+			url: `${BASE_URL}/stories`,
+			data: {
+				token,
+				story: {
+					author,
+					title,
+					url,
+				},
+			},
+		});
+
+		const story = new Story(response.data.story);
+		return story;
 	}
 }
-
 /******************************************************************************
  * User: a user in the system (only used to represent the current user)
  */
