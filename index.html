@@ -38,9 +38,9 @@
 			</div>
 			<div class="nav-main hidden">
 				|
-				<a class="nav-link" id="nav-submit">submit</a>
+				<a class="nav-link" id="nav-submit">Submit</a>
 				|
-				<a class="nav-link" id="nav-favorites">favorites</a>
+				<a class="nav-link" id="nav-favorites">Favorites</a>
 				|
 				<a class="nav-link" id="nav-myStoies">My Stories</a>
 			</div>
@@ -97,6 +97,24 @@
 					<input id="signup-password" autocomplete="new-password" type="password" />
 				</div>
 				<button type="submit">create account</button>
+			</form>
+
+			<!-- New Story form -->
+			<form action="" class="account-form hidden" id="submit-story-form">
+				<div>
+					<label for="create-author">author</label>
+					<input id="create-author" required placeholder="author name" />
+				</div>
+				<div>
+					<label for="create-title">title</label>
+					<input id="create-title" required placeholder="story title" />
+				</div>
+				<div>
+					<label for="create-url">url</label>
+					<input id="create-url" required type="url" placeholder="story url" />
+				</div>
+				<button type="submit">submit</button>
+				<hr />
 			</form>
 		</section>
 
