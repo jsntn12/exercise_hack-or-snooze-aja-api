@@ -30,6 +30,7 @@ $navLogin.on('click', navLoginClick);
 function updateNavOnLogin() {
 	console.debug('updateNavOnLogin');
 	$('.main-nav-links').show();
+	$('.nav-main').show();
 	$navLogin.hide();
 	$navLogOut.show();
 	$navUserProfile.text(`${currentUser.username}`).show();
@@ -41,3 +42,5 @@ function navSubmitStoryClick(evt) {
 	$allStoriesList.show();
 	$submitStoryForm.show();
 }
+
+$navSubmitStory.on('click', navSubmitStoryClick);
