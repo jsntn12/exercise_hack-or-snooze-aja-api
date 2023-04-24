@@ -38,7 +38,7 @@
 			</div>
 			<div class="nav-main hidden">
 				|
-				<a class="nav-link" id="nav-submit">Submit</a>
+				<a class="nav-link" id="nav-submitStory">Submit</a>
 				|
 				<a class="nav-link" id="nav-favorites">Favorites</a>
 				|
@@ -55,7 +55,24 @@
 		<section class="stories-container container">
 			<!-- loading message (removed by JS after stories loaded) -->
 			<div id="stories-loading-msg">Loading&hellip;</div>
-
+			<!-- New Story form -->
+			<form action="" class="hidden" id="submit-story-form">
+				<div>
+					<label for="create-author-form">author</label>
+					<input id="create-author-form" required placeholder="Author Name" />
+				</div>
+				<div>
+					<label for="create-title-form">title</label>
+					<input id="create-title-form" required placeholder="Story Title" />
+				</div>
+				<div>
+					<label for="create-url-form">url</label>
+					<input id="create-url-form" required type="url" placeholder="Story Url" />
+				</div>
+				<button type="submit">submit</button>
+				<hr />
+			</form>
+		</section>
 			<!-- List of all stories -->
 			<ol id="all-stories-list" class="stories-list"></ol>
 		</section>
@@ -99,24 +116,7 @@
 				<button type="submit">create account</button>
 			</form>
 
-			<!-- New Story form -->
-			<form action="" class="account-form hidden" id="submit-story-form">
-				<div>
-					<label for="create-author">author</label>
-					<input id="create-author" required placeholder="author name" />
-				</div>
-				<div>
-					<label for="create-title">title</label>
-					<input id="create-title" required placeholder="story title" />
-				</div>
-				<div>
-					<label for="create-url">url</label>
-					<input id="create-url" required type="url" placeholder="story url" />
-				</div>
-				<button type="submit">submit</button>
-				<hr />
-			</form>
-		</section>
+
 
 		<!-- Library JS & our JS -->
 		<script src="https://unpkg.com/jquery"></script>
