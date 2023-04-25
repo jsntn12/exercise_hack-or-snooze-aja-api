@@ -41,8 +41,6 @@
 				<a class="nav-link" id="nav-submitStory">Submit</a>
 				|
 				<a class="nav-link" id="nav-favorites">Favorites</a>
-				|
-				<a class="nav-link" id="nav-myStoies">My Stories</a>
 			</div>
 			<div class="nav-right">
 				<a class="nav-link" href="#" id="nav-login">login/signup</a>
@@ -72,9 +70,10 @@
 				<button type="submit">submit</button>
 				<hr />
 			</form>
-		</section>
 			<!-- List of all stories -->
 			<ol id="all-stories-list" class="stories-list"></ol>
+			<!-- List of stories favorited by the user -->
+			<ol id="favorited-stories" class="hidden stories-list"></ol>
 		</section>
 
 		<!-- Login and signup forms -->
@@ -115,9 +114,7 @@
 				</div>
 				<button type="submit">create account</button>
 			</form>
-
-
-
+		</section>
 		<!-- Library JS & our JS -->
 		<script src="https://unpkg.com/jquery"></script>
 		<script src="https://unpkg.com/axios/dist/axios.js"></script>
