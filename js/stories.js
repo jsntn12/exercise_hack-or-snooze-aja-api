@@ -19,7 +19,7 @@ async function getAndShowStoriesOnStart() {
  * Returns the markup for the story.
  */
 
-function generateStoryMarkup(story) {
+function generateStoryMarkup(story, showDeleteBtn = true) {
 	// console.debug("generateStoryMarkup", story);
 
 	const hostName = story.getHostName();
@@ -28,6 +28,7 @@ function generateStoryMarkup(story) {
 	return $(`
       <li id="${story.storyId}">
 			${showStar ? getStarHTML(story, currentUser) : ''}
+			${showDeleteBtn ? getDeleteBtnHTML() : ''}
 
         <a href="${story.url}" target="a_blank" class="story-link">
           ${story.title}
@@ -39,6 +40,26 @@ function generateStoryMarkup(story) {
     `);
 }
 
+function getDeleteBtnHTML() {
+	return `
+      <span class="trash-can">
+        <i class="fas fa-trash-alt"></i>
+      </span>`;
+}
+
+async function deleteStory(evt) {
+	console.debug('deleteStory');
+
+	const $closestLi = $(evt.target).closest('li');
+	const storyId = $closestLi.attr('id');
+
+	await storyList.removeStory(currentUser, storyId);
+
+	// re-generate story list
+	await putStoriesOnPage();
+}
+
+$storiesLists.on('click', '.trash-can', deleteStory);
 /** Gets list of stories from server, generates their HTML, and puts on page. */
 
 function putStoriesOnPage() {

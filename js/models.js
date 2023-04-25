@@ -90,6 +90,17 @@ class StoryList {
 		const story = new Story(response.data.story);
 		return story;
 	}
+	async removeStory(user, storyId) {
+		const token = user.loginToken;
+		await axios({
+			url: `${BASE_URL}/stories/${storyId}`,
+			method: 'DELETE',
+			data: { token: user.loginToken },
+		});
+
+		// filter out the story whose ID we are removing
+		this.stories = this.stories.filter((story) => story.storyId !== storyId);
+	}
 }
 /******************************************************************************
  * User: a user in the system (only used to represent the current user)
